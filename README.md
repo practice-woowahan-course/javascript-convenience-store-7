@@ -1,6 +1,9 @@
 # javascript-convenience-store-precourse
 
 241207 스터디
+시간 스탬프
+
+기능 목록 작성 완료 : 13:44
 
 # 메모
 
