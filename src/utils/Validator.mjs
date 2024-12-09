@@ -1,3 +1,5 @@
+import StockController from "../controller/StockController.js";
+
 const Validator = {
   isBigParentheses: (input) => {
     if (input[0] !== "[" && input[input.length - 1] !== "]") {
@@ -23,6 +25,21 @@ const Validator = {
       );
     }
   },
+  isYorN: (input) => {
+    const yn = ['Y','N']
+    if (!yn.includes(input.trim())) {
+      throw new Error(
+          `[ERROR] 입력값은 'Y' 또는 'N'이어야합니다.`
+      )
+    }
+  },
+  isPossibleAmount: (name, quantity) => {
+    const stockController = StockController.getInstance();
+    const isPossible = stockController.isPossibleAmount(name, quantity);
+    if (!isPossible) {
+      throw new Error('[ERROR] 구매할 수 있는 수량을 초과하였습니다.')
+    }
+  }
 };
 
 export default Validator;

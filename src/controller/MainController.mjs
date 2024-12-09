@@ -9,12 +9,20 @@ class MainController {
     async start() {
         OutputView.opening();
         OutputView.printBreak();
-        const stockController = new StockController();
-        await stockController.getProductFile();
+        const fileController = new FileController();
+        const productFile = await fileController.getProducts();
+        const promotionFile = await fileController.getPromotions();
+        const stockController = StockController.getInstance();
+        await stockController.allocateFile(productFile, promotionFile);
+
         const messageCurrentStockStatus = stockController.outputStockData();
         OutputController.printCurrentStockStatus(messageCurrentStockStatus);
-        // const productAndAmount = await InputController.getProductAmount();    
-        // MissionUtils.Console.print(productAndAmount);
+        const productAndAmountList = await InputController.getProductAmount();
+
+        stockController.getPaymentHistory(productAndAmountList);
+        stockController.getStock();
+
+        // const membershipDiscount = await InputController.getMembershipDiscount();
     }
     
 }
