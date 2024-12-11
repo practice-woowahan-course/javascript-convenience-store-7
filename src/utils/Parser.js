@@ -1,7 +1,7 @@
-import Product from "../model/Product.mjs";
-import StockProduct from "../model/StockProduct.mjs";
-import Validator from "./Validator.mjs";
-import Promotion from "../model/Promotion.mjs";
+import Product from "../model/Product.js";
+import StockProduct from "../model/StockProduct.js";
+import Validator from "./Validator.js";
+import Promotion from "../model/Promotion.js";
 
 function splitComma(input) {
   return input.split(",");

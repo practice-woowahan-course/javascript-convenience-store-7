@@ -37,7 +37,7 @@ const Validator = {
     const stockController = StockController.getInstance();
     const isPossible = stockController.isPossibleAmount(name, quantity);
     if (!isPossible) {
-      throw new Error('[ERROR] 구매할 수 있는 수량을 초과하였습니다.')
+      throw new Error('[ERROR] 재고 수량을 초과하여 구매할 수 없습니다. 다시 입력해 주세요.')
     }
   }
 };
